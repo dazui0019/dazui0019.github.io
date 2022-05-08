@@ -2,91 +2,91 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://example.com/p/actions-test/</loc>
+    <loc>https://bonbon369.github.io/p/actions-test/</loc>
     <lastmod>2022-05-07T18:22:03+08:00</lastmod>
   </url><url>
-    <loc>https://example.com/</loc>
+    <loc>https://bonbon369.github.io/</loc>
     <lastmod>2022-05-07T18:22:03+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://example.com/en/"
+                href="https://bonbon369.github.io/en/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="ar"
-                href="https://example.com/ar/"
+                href="https://bonbon369.github.io/ar/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="https://example.com/"
+                href="https://bonbon369.github.io/"
                 />
   </url><url>
-    <loc>https://example.com/post/</loc>
+    <loc>https://bonbon369.github.io/post/</loc>
     <lastmod>2022-05-07T18:22:03+08:00</lastmod>
   </url><url>
-    <loc>https://example.com/categories/</loc>
+    <loc>https://bonbon369.github.io/categories/</loc>
     <lastmod>2022-05-07T14:16:05+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://example.com/en/categories/"
+                href="https://bonbon369.github.io/en/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="ar"
-                href="https://example.com/ar/categories/"
+                href="https://bonbon369.github.io/ar/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="https://example.com/categories/"
+                href="https://bonbon369.github.io/categories/"
                 />
   </url><url>
-    <loc>https://example.com/tags/docker/</loc>
+    <loc>https://bonbon369.github.io/tags/docker/</loc>
     <lastmod>2022-05-07T14:16:05+08:00</lastmod>
   </url><url>
-    <loc>https://example.com/p/docker/</loc>
+    <loc>https://bonbon369.github.io/p/docker/</loc>
     <lastmod>2022-05-07T14:16:05+08:00</lastmod>
   </url><url>
-    <loc>https://example.com/categories/linux/</loc>
+    <loc>https://bonbon369.github.io/categories/linux/</loc>
     <lastmod>2022-05-07T14:16:05+08:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/nginx/</loc>
+    <loc>https://bonbon369.github.io/tags/nginx/</loc>
     <lastmod>2022-05-07T14:16:05+08:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/stack/</loc>
+    <loc>https://bonbon369.github.io/tags/stack/</loc>
     <lastmod>2022-05-07T14:16:05+08:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/</loc>
+    <loc>https://bonbon369.github.io/tags/</loc>
     <lastmod>2022-05-07T14:16:05+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://example.com/en/tags/"
+                href="https://bonbon369.github.io/en/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="ar"
-                href="https://example.com/ar/tags/"
+                href="https://bonbon369.github.io/ar/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="https://example.com/tags/"
+                href="https://bonbon369.github.io/tags/"
                 />
   </url><url>
-    <loc>https://example.com/categories/blog/</loc>
+    <loc>https://bonbon369.github.io/categories/blog/</loc>
     <lastmod>2022-05-07T13:56:22+08:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/hugo/</loc>
+    <loc>https://bonbon369.github.io/tags/hugo/</loc>
     <lastmod>2022-05-07T13:56:22+08:00</lastmod>
   </url><url>
-    <loc>https://example.com/p/hugo-%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</loc>
+    <loc>https://bonbon369.github.io/p/hugo-%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</loc>
     <lastmod>2022-05-07T13:56:22+08:00</lastmod>
   </url><url>
-    <loc>https://example.com/p/test-post/</loc>
+    <loc>https://bonbon369.github.io/p/test-post/</loc>
     <lastmod>2022-05-07T13:33:47+08:00</lastmod>
   </url>
 </urlset>

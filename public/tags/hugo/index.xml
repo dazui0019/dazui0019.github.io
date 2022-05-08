@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Hugo on bon&#39;s blog</title>
-        <link>https://example.com/tags/hugo/</link>
+        <link>https://bonbon369.github.io/tags/hugo/</link>
         <description>Recent content in Hugo on bon&#39;s blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Sat, 07 May 2022 13:56:22 +0800</lastBuildDate><atom:link href="https://example.com/tags/hugo/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 07 May 2022 13:56:22 +0800</lastBuildDate><atom:link href="https://bonbon369.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Hugo 搭建博客</title>
-        <link>https://example.com/p/hugo-%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</link>
+        <link>https://bonbon369.github.io/p/hugo-%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</link>
         <pubDate>Sat, 07 May 2022 13:56:22 +0800</pubDate>
         
-        <guid>https://example.com/p/hugo-%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</guid>
-        <description>&lt;img src="https://example.com/p/hugo-%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/hugo-logo-wide.svg" alt="Featured image of post Hugo 搭建博客" /&gt;&lt;h1 id=&#34;下载hugo&#34;&gt;下载hugo&lt;/h1&gt;
+        <guid>https://bonbon369.github.io/p/hugo-%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</guid>
+        <description>&lt;img src="https://bonbon369.github.io/p/hugo-%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/hugo-logo-wide.svg" alt="Featured image of post Hugo 搭建博客" /&gt;&lt;h1 id=&#34;下载hugo&#34;&gt;下载hugo&lt;/h1&gt;
 &lt;p&gt;用的是windows 11系统&lt;/p&gt;
 &lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.gohugo.cn/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Hugo中文官网&lt;/a&gt;&lt;/p&gt;
@@ -23,11 +23,11 @@
         </item>
         <item>
         <title>Hello World!</title>
-        <link>https://example.com/p/test-post/</link>
+        <link>https://bonbon369.github.io/p/test-post/</link>
         <pubDate>Sat, 07 May 2022 13:33:47 +0800</pubDate>
         
-        <guid>https://example.com/p/test-post/</guid>
-        <description>&lt;img src="https://example.com/p/test-post/earth.jpg" alt="Featured image of post Hello World!" /&gt;&lt;h1 id=&#34;hello-word&#34;&gt;Hello Word!&lt;/h1&gt;
+        <guid>https://bonbon369.github.io/p/test-post/</guid>
+        <description>&lt;img src="https://bonbon369.github.io/p/test-post/earth.jpg" alt="Featured image of post Hello World!" /&gt;&lt;h1 id=&#34;hello-word&#34;&gt;Hello Word!&lt;/h1&gt;
 </description>
         </item>
         

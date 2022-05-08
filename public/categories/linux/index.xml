@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Linux on bon&#39;s blog</title>
-        <link>https://example.com/categories/linux/</link>
+        <link>https://bonbon369.github.io/categories/linux/</link>
         <description>Recent content in Linux on bon&#39;s blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Sat, 07 May 2022 14:16:05 +0800</lastBuildDate><atom:link href="https://example.com/categories/linux/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 07 May 2022 14:16:05 +0800</lastBuildDate><atom:link href="https://bonbon369.github.io/categories/linux/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Docker</title>
-        <link>https://example.com/p/docker/</link>
+        <link>https://bonbon369.github.io/p/docker/</link>
         <pubDate>Sat, 07 May 2022 14:16:05 +0800</pubDate>
         
-        <guid>https://example.com/p/docker/</guid>
-        <description>&lt;img src="https://example.com/p/docker/contributors.png" alt="Featured image of post Docker" /&gt;&lt;p&gt;以nginx为例。&lt;/p&gt;
+        <guid>https://bonbon369.github.io/p/docker/</guid>
+        <description>&lt;img src="https://bonbon369.github.io/p/docker/contributors.png" alt="Featured image of post Docker" /&gt;&lt;p&gt;以nginx为例。&lt;/p&gt;
 &lt;h1 id=&#34;下载并安装docker&#34;&gt;下载并安装docker&lt;/h1&gt;
 &lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.docker.com/engine/install/ubuntu/#install-using-the-convenience-script&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;官方文档&lt;/a&gt;，直接使用&lt;a class=&#34;link&#34; href=&#34;https://docs.docker.com/engine/install/ubuntu/#install-using-the-convenience-script&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
@@ -57,10 +57,10 @@
 &lt;code&gt;/bin/bash&lt;/code&gt;：将这条命令放进容器里执行，就是打开bash&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;这样就可以在容器的内部直接操作容器了。
-&lt;img src=&#34;https://example.com/p/docker/image1.png&#34;
+&lt;img src=&#34;https://bonbon369.github.io/p/docker/image1.png&#34;
 	width=&#34;1692&#34;
 	height=&#34;153&#34;
-	srcset=&#34;https://example.com/p/docker/image1_hu6a059a3f68edceacff93d5c9bfb0fa1a_37351_480x0_resize_box_3.png 480w, https://example.com/p/docker/image1_hu6a059a3f68edceacff93d5c9bfb0fa1a_37351_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://bonbon369.github.io/p/docker/image1_hu6a059a3f68edceacff93d5c9bfb0fa1a_37351_480x0_resize_box_3.png 480w, https://bonbon369.github.io/p/docker/image1_hu6a059a3f68edceacff93d5c9bfb0fa1a_37351_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;在容器内部&#34;
@@ -185,10 +185,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;默认监听的是80端口，所以只要开一个80端口就行了。
-&lt;img src=&#34;https://example.com/p/docker/image2.png&#34;
+&lt;img src=&#34;https://bonbon369.github.io/p/docker/image2.png&#34;
 	width=&#34;503&#34;
 	height=&#34;153&#34;
-	srcset=&#34;https://example.com/p/docker/image2_hu2b0c6d3128588e583e7f0c4f56c673e4_19755_480x0_resize_box_3.png 480w, https://example.com/p/docker/image2_hu2b0c6d3128588e583e7f0c4f56c673e4_19755_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://bonbon369.github.io/p/docker/image2_hu2b0c6d3128588e583e7f0c4f56c673e4_19755_480x0_resize_box_3.png 480w, https://bonbon369.github.io/p/docker/image2_hu2b0c6d3128588e583e7f0c4f56c673e4_19755_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;查看端口&#34;

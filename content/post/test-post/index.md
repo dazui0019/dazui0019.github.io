@@ -11,6 +11,6 @@ categories:
     - Blog
 tags:
     - Hugo
-    - Stack 
+    - Stack
 ---
 # Hello Word!
