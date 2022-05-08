@@ -1,9 +1,9 @@
 ---
 title: "Hello World!"
-description: "你好，世界！"
+description: "Hello World!"
 date: 2022-05-07T13:33:47+08:00
 slug: "test-post"
-draft: true
+draft: false
 
 image: "earth.jpg"
 
@@ -14,3 +14,5 @@ tags:
     - Stack
 ---
 # Hello Word!
+
+你好，世界！
