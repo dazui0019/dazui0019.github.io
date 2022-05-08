@@ -1,4 +1,4 @@
-baseurl: ttps://bonbon369.github.io/
+baseurl: https://bonbon369.github.io/
 languageCode: en-us
 theme: hugo-theme-stack
 paginate: 5
