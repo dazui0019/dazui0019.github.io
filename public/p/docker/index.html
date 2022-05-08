@@ -1,18 +1,44 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='以nginx为例。 下载并安装docker 官方文档，直接使用脚本安装，我选择的是Ubuntu的Docker Engine版本。 很简单我就不演示了'><title>Docker</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='以nginx为例。
+下载并安装docker 官方文档，直接使用脚本安装，我选择的是Ubuntu的Docker Engine版本。 很简单我就不演示了。
+1 2 3  curl -fsSL https://get.docker.com -o get-docker.sh sudo bash get-docker.sh #就是把.sh文件下过来,再用bash打开   nginx 拉取镜像 nginx在docker上的页面。 sudo docker pull nginx:latest
+创建并启动容器 sudo docker run -d --name nginx -p 80:80 -p 443:443 nginx:latest
+ 命令解析 run：创建并运行一个容器 nginx:latest：最后的这一条就是指定用哪一个镜像来创建容器，这里指定的就是nginx。 -d：让容器在后台运行。 --name：给容器命名，因为一个镜像可以开多个容器。 -p：指定端口映射，主机端口：容器端口，例如80：88，把主机的80端口映射到docker的88端口。例如nginx会监听80端口，那我就可以指定-p 7474:80那么localhost:7474也会进入nginx的主页。-p可以指定多个端口映射。
+ docker的其他指令
+进入容器内部 docker exec -it nginx /bin/bash
+ exec：在运行的容器中执行命令 -i：开启标准输入，STDIN -t：分配一个虚拟终端，TTY nginx：指定容器 /bin/bash：将这条命令放进容器里执行，就是打开bash
+ 这样就可以在容器的内部直接操作容器了。 宿主机与容器共享文件  先创建一个nginx容器，把里面的配置文件拷贝出来。 删除原来的nginx容器。 在主机上创建www/html目录，作为网站的根目录。 新建一个nginx容器，将之前复制出来的文件和www/html共享给nginx容器。  准备共享的文件 在主机上创建共享目录 我的习惯是跟据nginx原来的目录结果，建个差不多的。'><title>Docker</title>
 
 <link rel='canonical' href='https://bonbon369.github.io/p/docker/'>
 
 <link rel="stylesheet" href="/scss/style.min.d9e0562edde3d2bdf9d3d81365095a29d062ddaaa5d671f22168e57dfdb18b4f.css"><meta property='og:title' content='Docker'>
-<meta property='og:description' content='以nginx为例。 下载并安装docker 官方文档，直接使用脚本安装，我选择的是Ubuntu的Docker Engine版本。 很简单我就不演示了'>
+<meta property='og:description' content='以nginx为例。
+下载并安装docker 官方文档，直接使用脚本安装，我选择的是Ubuntu的Docker Engine版本。 很简单我就不演示了。
+1 2 3  curl -fsSL https://get.docker.com -o get-docker.sh sudo bash get-docker.sh #就是把.sh文件下过来,再用bash打开   nginx 拉取镜像 nginx在docker上的页面。 sudo docker pull nginx:latest
+创建并启动容器 sudo docker run -d --name nginx -p 80:80 -p 443:443 nginx:latest
+ 命令解析 run：创建并运行一个容器 nginx:latest：最后的这一条就是指定用哪一个镜像来创建容器，这里指定的就是nginx。 -d：让容器在后台运行。 --name：给容器命名，因为一个镜像可以开多个容器。 -p：指定端口映射，主机端口：容器端口，例如80：88，把主机的80端口映射到docker的88端口。例如nginx会监听80端口，那我就可以指定-p 7474:80那么localhost:7474也会进入nginx的主页。-p可以指定多个端口映射。
+ docker的其他指令
+进入容器内部 docker exec -it nginx /bin/bash
+ exec：在运行的容器中执行命令 -i：开启标准输入，STDIN -t：分配一个虚拟终端，TTY nginx：指定容器 /bin/bash：将这条命令放进容器里执行，就是打开bash
+ 这样就可以在容器的内部直接操作容器了。 宿主机与容器共享文件  先创建一个nginx容器，把里面的配置文件拷贝出来。 删除原来的nginx容器。 在主机上创建www/html目录，作为网站的根目录。 新建一个nginx容器，将之前复制出来的文件和www/html共享给nginx容器。  准备共享的文件 在主机上创建共享目录 我的习惯是跟据nginx原来的目录结果，建个差不多的。'>
 <meta property='og:url' content='https://bonbon369.github.io/p/docker/'>
 <meta property='og:site_name' content='bon&#39;s blog'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Docker' /><meta property='article:tag' content='Nginx' /><meta property='article:tag' content='Stack' /><meta property='article:published_time' content='2022-05-07T14:16:05&#43;08:00'/><meta property='article:modified_time' content='2022-05-07T14:16:05&#43;08:00'/><meta property='og:image' content='https://bonbon369.github.io/p/docker/contributors.png' />
 <meta name="twitter:title" content="Docker">
-<meta name="twitter:description" content="以nginx为例。 下载并安装docker 官方文档，直接使用脚本安装，我选择的是Ubuntu的Docker Engine版本。 很简单我就不演示了"><meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:description" content="以nginx为例。
+下载并安装docker 官方文档，直接使用脚本安装，我选择的是Ubuntu的Docker Engine版本。 很简单我就不演示了。
+1 2 3  curl -fsSL https://get.docker.com -o get-docker.sh sudo bash get-docker.sh #就是把.sh文件下过来,再用bash打开   nginx 拉取镜像 nginx在docker上的页面。 sudo docker pull nginx:latest
+创建并启动容器 sudo docker run -d --name nginx -p 80:80 -p 443:443 nginx:latest
+ 命令解析 run：创建并运行一个容器 nginx:latest：最后的这一条就是指定用哪一个镜像来创建容器，这里指定的就是nginx。 -d：让容器在后台运行。 --name：给容器命名，因为一个镜像可以开多个容器。 -p：指定端口映射，主机端口：容器端口，例如80：88，把主机的80端口映射到docker的88端口。例如nginx会监听80端口，那我就可以指定-p 7474:80那么localhost:7474也会进入nginx的主页。-p可以指定多个端口映射。
+ docker的其他指令
+进入容器内部 docker exec -it nginx /bin/bash
+ exec：在运行的容器中执行命令 -i：开启标准输入，STDIN -t：分配一个虚拟终端，TTY nginx：指定容器 /bin/bash：将这条命令放进容器里执行，就是打开bash
+ 这样就可以在容器的内部直接操作容器了。 宿主机与容器共享文件  先创建一个nginx容器，把里面的配置文件拷贝出来。 删除原来的nginx容器。 在主机上创建www/html目录，作为网站的根目录。 新建一个nginx容器，将之前复制出来的文件和www/html共享给nginx容器。  准备共享的文件 在主机上创建共享目录 我的习惯是跟据nginx原来的目录结果，建个差不多的。"><meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content='https://bonbon369.github.io/p/docker/contributors.png' />
+    <link rel="shortcut icon" href="icons/home.svg" />
+
     </head>
     <body class="
     article-page
@@ -40,7 +66,7 @@
     })();
 </script>
 <div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
-    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
         <span class="hamburger-box">
             <span class="hamburger-inner"></span>
         </span>
@@ -135,31 +161,110 @@
         </ol><ol class="menu" id="main-menu">
         
         
+        
 
-        <div class="menu-bottom-section">
-                <li id="i18n-switch">  
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-  <path d="M4 5h7" />
-  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
-  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
-  <path d="M12 20l4 -9l4 9" />
-  <path d="M19.1 18h-6.2" />
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
 </svg>
 
 
 
-                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
-                        
-                            <option value="https://bonbon369.github.io/en/" >English</option>
-                        
-                            <option value="https://bonbon369.github.io/" selected>中文</option>
-                        
-                            <option value="https://bonbon369.github.io/ar/" >عربي</option>
-                        
-                    </select>
-                </li>
-            
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
             
             
                 <li id="dark-mode-toggle">
@@ -179,7 +284,7 @@
 
 
 
-                    <span>暗色模式</span>
+                    <span>Dark Mode</span>
                 </li>
             
         </div>
@@ -205,7 +310,7 @@
     
     <header class="article-category">
         
-            <a href="/categories/linux/" >
+            <a href="/categories/linux/" style="background-color: #2a9d8f; color: #fff;">
                 Linux
             </a>
         
@@ -248,7 +353,7 @@
 
 
                 <time class="article-time--reading">
-                    阅读时长: 4 分钟
+                    1 minute read
                 </time>
             </div>
         
@@ -523,62 +628,20 @@
      
     
         
-    <div class="disqus-container">
-    <div id="disqus_thread"></div>
-<script type="application/javascript">
-    window.disqus_config = function () {
-    
-    
-    
-    };
-    (function() {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
-            return;
-        }
-        var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-</div>
-
-<style>
-    .disqus-container {
-        background-color: var(--card-background);
-        border-radius: var(--card-border-radius);
-        box-shadow: var(--shadow-l1);
-        padding: var(--card-padding);
-    }
-</style>
-
-<script>
-    window.addEventListener('onColorSchemeChange', (e) => {
-        if (DISQUS) {
-            DISQUS.reset({
-                reload: true
-            });
-        }
-    })
-</script>
-
     
 
     <footer class="site-footer">
     <section class="copyright">
         &copy; 
         
-            2020 - 
-        
         2022 bon&#39;s blog
     </section>
     
     <section class="powerby">
+        
+            十年饮冰，难凉热血。 <br/>
         Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
-        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.11.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.11.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
     </section>
 </footer>
 
@@ -679,7 +742,7 @@
 
 
         </div>
-        <h2 class="widget-title section-title">目录</h2>
+        <h2 class="widget-title section-title">Table of contents</h2>
         
         <div class="widget--toc">
             <nav id="TableOfContents">

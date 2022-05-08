@@ -9,15 +9,19 @@ languages:
         languageName: English
         title: bon's blog
         weight: 1
-    # zh-cn:
-    #     languageName: 中文
-    #     title: bon's blog
-    #     weight: 2
-    # ar:
-    #     languageName: عربي
-    #     languagedirection: rtl
-    #     title: موقع تجريبي
-    #     weight: 3
+    zh-cn:
+        languageName: 中文
+        title: bon's blog
+        weight: 2
+    ar:
+        languageName: عربي
+        languagedirection: rtl
+        title: موقع تجريبي
+        weight: 3
+
+disableLanguages:
+    - zh-cn
+    - ar
 
 # Change it to your Disqus shortname before using
 disqusShortname: hugo-theme-stack
@@ -32,7 +36,7 @@ DefaultContentLanguage: en
 
 # Set hasCJKLanguage to true if DefaultContentLanguage is in [zh-cn ja ko]
 # This will make .Summary and .WordCount behave correctly for CJK languages.
-hasCJKLanguage: true
+hasCJKLanguage: false
 
 permalinks:
     post: /p/:slug/
@@ -46,8 +50,8 @@ params:
     favicon:
 
     footer:
-        since: 2020
-        customText:
+        since: 2022
+        customText: 十年饮冰，难凉热血。
 
     dateFormat:
         published: Jan 02, 2006
@@ -70,7 +74,7 @@ params:
             default: Licensed under CC BY-NC-SA 4.0
 
     comments:
-        enabled: true
+        enabled: false
         provider: disqus
 
         disqusjs:
@@ -197,22 +201,18 @@ menu:
 
     social:
         - identifier: github
+          weight: -90
           name: GitHub
           url: https://github.com/bonbon369
           params:
               icon: brand-github
 
         - identifier: yuque
+          weight: -100
           name: yuque
           url: https://www.yuque.com/dazui-gv7by
           params:
               icon: brand-twitter
-
-        - identifier: mqtt
-          name: z-mqtt
-          url: http://localhost:18083
-          params:
-              icon: link
 
 related:
     includeNewer: true

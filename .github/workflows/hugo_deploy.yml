@@ -1,33 +1,30 @@
 # This is a basic workflow to help you get started with Actions
 
-name: pages-build-deployment
+name: hugo-build-deployment
 
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches: [ main ]
-    # paths-ignore: [ todo/**,  ]
-    #设置忽略文件变更
-  pull_request:
+    branches: [ main ] # push到main分支后触发动作，（也就是main分支的变动会触发动作）
+    # paths-ignore: [ todo/**,  ] # 设置忽略文件变更
+  #pull_request:
     # branches: [ main ]
 
   # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
+  #workflow_dispatch:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
-    # atciions-hugo好像只支持到20.04
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-20.04 #atciions-hugo好像只支持到20.04
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - name: Checks-out repository
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
         with:
           submodules: true  # Fetch Hugo themes (true OR recursive)
           fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
@@ -45,5 +42,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         if: ${{ github.ref == 'refs/heads/main' }} #refs/heads/main 就是main分支的全称。
         with:
-          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-          publish_dir: ./public
+          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }} # 获取密钥
+          # external_repository: username/external-repository #指定外部仓库
+          # publish_branch: your-branch  # default: gh-pages, 发布的分支，默认为gh-pages
+          publish_dir: ./public # 指定需要发布的目录，注意：是仓库里的文件
