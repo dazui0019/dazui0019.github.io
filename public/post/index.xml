@@ -233,6 +233,16 @@
 &lt;p&gt;往&lt;code&gt;/mnt/nginx/html&lt;/code&gt;里面写一个&lt;code&gt;index.html&lt;/code&gt;，看看效果。&lt;/p&gt;
 </description>
         </item>
+        <item>
+        <title>Hello World!</title>
+        <link>https://bonbon369.github.io/p/test-post/</link>
+        <pubDate>Sat, 07 May 2022 13:33:47 +0800</pubDate>
+        
+        <guid>https://bonbon369.github.io/p/test-post/</guid>
+        <description>&lt;img src="https://bonbon369.github.io/p/test-post/earth.jpg" alt="Featured image of post Hello World!" /&gt;&lt;h1 id=&#34;hello-word&#34;&gt;Hello Word!&lt;/h1&gt;
+&lt;p&gt;你好，世界！&lt;/p&gt;
+</description>
+        </item>
         
     </channel>
 </rss>

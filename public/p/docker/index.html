@@ -36,8 +36,13 @@
 进入容器内部 docker exec -it nginx /bin/bash
  exec：在运行的容器中执行命令 -i：开启标准输入，STDIN -t：分配一个虚拟终端，TTY nginx：指定容器 /bin/bash：将这条命令放进容器里执行，就是打开bash
  这样就可以在容器的内部直接操作容器了。 宿主机与容器共享文件  先创建一个nginx容器，把里面的配置文件拷贝出来。 删除原来的nginx容器。 在主机上创建www/html目录，作为网站的根目录。 新建一个nginx容器，将之前复制出来的文件和www/html共享给nginx容器。  准备共享的文件 在主机上创建共享目录 我的习惯是跟据nginx原来的目录结果，建个差不多的。"><meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content='https://bonbon369.github.io/p/docker/contributors.png' />
-    <link rel="shortcut icon" href="icons/home.svg" />
+    <meta name="twitter:image" content='https://bonbon369.github.io/p/docker/contributors.png' /><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
 
     </head>
     <body class="
@@ -102,25 +107,6 @@
             
                 <li>
                     <a 
-                        href='https://github.com/bonbon369'
-                        target="_blank"
-                        title="GitHub"
-                    >
-                        
-                        
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
-</svg>
-
-
-
-                        
-                    </a>
-                </li>
-            
-                <li>
-                    <a 
                         href='https://www.yuque.com/dazui-gv7by'
                         target="_blank"
                         title="yuque"
@@ -140,16 +126,15 @@
             
                 <li>
                     <a 
-                        href='http://localhost:18083'
+                        href='https://github.com/bonbon369'
                         target="_blank"
-                        title="z-mqtt"
+                        title="GitHub"
                     >
                         
                         
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
-  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
 </svg>
 
 
@@ -185,7 +170,7 @@
         
 
         <li >
-            <a href='/search/search/' >
+            <a href='/search/' >
                 
                 
                 
