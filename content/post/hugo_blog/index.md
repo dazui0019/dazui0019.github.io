@@ -1,7 +1,7 @@
 ---
 title: "Hugo + GitPage + Actions"
 date: 2022-05-07T13:56:22+08:00
-draft: true
+draft: false
 
 image: "hugo-logo-wide.svg"
 
