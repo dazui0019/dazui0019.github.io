@@ -1,5 +1,5 @@
 ---
-title: "Hugo 搭建博客"
+title: "Hugo + GitPage + Actions"
 date: 2022-05-07T13:56:22+08:00
 draft: true
 

@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Posts on bon&#39;s blog</title>
+        <link>https://bonbon369.github.io/post/</link>
+        <description>Recent content in Posts on bon&#39;s blog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <lastBuildDate>Sat, 07 May 2022 14:16:05 +0800</lastBuildDate><atom:link href="https://bonbon369.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Docker</title>
+        <link>https://bonbon369.github.io/p/docker/</link>
+        <pubDate>Sat, 07 May 2022 14:16:05 +0800</pubDate>
+        
+        <guid>https://bonbon369.github.io/p/docker/</guid>
+        <description>&lt;img src="https://bonbon369.github.io/p/docker/contributors.png" alt="Featured image of post Docker" /&gt;&lt;p&gt;以nginx为例。&lt;/p&gt;
+&lt;h1 id=&#34;下载并安装docker&#34;&gt;下载并安装docker&lt;/h1&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.docker.com/engine/install/ubuntu/#install-using-the-convenience-script&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;官方文档&lt;/a&gt;，直接使用&lt;a class=&#34;link&#34; href=&#34;https://docs.docker.com/engine/install/ubuntu/#install-using-the-convenience-script&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;脚本安装&lt;/a&gt;，我选择的是Ubuntu的Docker Engine版本。
+很简单我就不演示了。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;curl -fsSL https://get.docker.com -o get-docker.sh
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo bash get-docker.sh
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;#就是把.sh文件下过来,再用bash打开&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h1 id=&#34;nginx&#34;&gt;nginx&lt;/h1&gt;
+&lt;h2 id=&#34;拉取镜像&#34;&gt;拉取镜像&lt;/h2&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://hub.docker.com/_/nginx?tab=tags&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;nginx&lt;/a&gt;在docker上的页面。
+&lt;code&gt;sudo docker pull nginx:latest&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;创建并启动容器&#34;&gt;创建并启动容器&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;sudo docker run -d --name nginx -p 80:80 -p 443:443 nginx:latest&lt;/code&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;命令解析
+&lt;code&gt;run&lt;/code&gt;：创建并运行一个容器
+&lt;code&gt;nginx:latest&lt;/code&gt;：最后的这一条就是指定用哪一个镜像来创建容器，这里指定的就是nginx。
+&lt;code&gt;-d&lt;/code&gt;：让容器在后台运行。
+&lt;code&gt;--name&lt;/code&gt;：给容器命名，因为一个镜像可以开多个容器。
+&lt;code&gt;-p&lt;/code&gt;：指定端口映射，主机端口：容器端口，例如80：88，把主机的80端口映射到docker的88端口。例如nginx会监听80端口，那我就可以指定&lt;code&gt;-p 7474:80&lt;/code&gt;那么&lt;code&gt;localhost:7474&lt;/code&gt;也会进入nginx的主页。&lt;code&gt;-p&lt;/code&gt;可以指定多个端口映射。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.runoob.com/docker/docker-run-command.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;docker的其他指令&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;进入容器内部&#34;&gt;进入容器内部&lt;/h1&gt;
+&lt;p&gt;&lt;code&gt;docker exec -it nginx /bin/bash&lt;/code&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;exec&lt;/code&gt;：在运行的容器中执行命令
+&lt;code&gt;-i&lt;/code&gt;：开启标准输入，STDIN
+&lt;code&gt;-t&lt;/code&gt;：分配一个虚拟终端，TTY
+&lt;code&gt;nginx&lt;/code&gt;：指定容器
+&lt;code&gt;/bin/bash&lt;/code&gt;：将这条命令放进容器里执行，就是打开bash&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这样就可以在容器的内部直接操作容器了。
+&lt;img src=&#34;https://bonbon369.github.io/p/docker/image1.png&#34;
+	width=&#34;1692&#34;
+	height=&#34;153&#34;
+	srcset=&#34;https://bonbon369.github.io/p/docker/image1_hu6a059a3f68edceacff93d5c9bfb0fa1a_37351_480x0_resize_box_3.png 480w, https://bonbon369.github.io/p/docker/image1_hu6a059a3f68edceacff93d5c9bfb0fa1a_37351_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;在容器内部&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;1105&#34;
+		data-flex-basis=&#34;2654px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h1 id=&#34;宿主机与容器共享文件&#34;&gt;宿主机与容器共享文件&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;先创建一个nginx容器，把里面的配置文件拷贝出来。&lt;/li&gt;
+&lt;li&gt;删除原来的nginx容器。&lt;/li&gt;
+&lt;li&gt;在主机上创建&lt;code&gt;www/html&lt;/code&gt;目录，作为网站的根目录。&lt;/li&gt;
+&lt;li&gt;新建一个nginx容器，将之前复制出来的文件和&lt;code&gt;www/html&lt;/code&gt;共享给nginx容器。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;准备共享的文件&#34;&gt;准备共享的文件&lt;/h2&gt;
+&lt;h3 id=&#34;在主机上创建共享目录&#34;&gt;在主机上创建共享目录&lt;/h3&gt;
+&lt;p&gt;我的习惯是跟据nginx原来的目录结果，建个差不多的。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo mkdir -p /mnt/nginx/html/
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 网站根目录&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo mkdir -p /mnt/nginx/logs/
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 保存日志文件&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo mkdir -p /mnt/nginx/conf.d/
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 有一个配置文件会放在该目录下&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;拷贝配置文件&#34;&gt;拷贝配置文件&lt;/h3&gt;
+&lt;p&gt;先将容器中的配置文件拷贝出来，将容器nginx内的&lt;code&gt;nginx.conf&lt;/code&gt;和&lt;code&gt;default.conf&lt;/code&gt;分别复制到&lt;code&gt;/mnt/nginx&lt;/code&gt;和&lt;code&gt;/mnt/nginx/conf.d/&lt;/code&gt;目录下。
+&lt;code&gt;/mnt&lt;/code&gt;目录是专门用来挂载的，那么将容器中的文件链接到主机，也能算挂载吧，所以放在这个目录下。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo docker cp nginx:/etc/nginx/nginx.conf /mnt/nginx/
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo docker cp nginx:/etc/nginx/conf.d/default.conf /mnt/nginx/conf.d/
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;#	cp 命令如果目的地地址的末尾是个目录的话，文件会按原来的名字放进该目录。否则改成末尾的文件名。&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;#	比如这里conf.d/是个目录，那就是将default.conf放进该目录下。&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 如果去掉/符号，也就是将conf.d当作一个文件名，那么default.conf会被改名成conf.d并放在nginx/目录下&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;cp&lt;/code&gt;：指定容器目录，&lt;code&gt;[容器名或容器ID]:[容器内的目录或文件]&lt;/code&gt;
+&lt;code&gt;cp&lt;/code&gt;命令可以在容器和主机之间双向拷贝。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;当前的目录结构&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ tree
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;└── nginx
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    ├── conf.d
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    │   └── default.conf
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    ├── html
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    ├── logs
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    └── nginx.conf
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h4 id=&#34;停止并移除该容器&#34;&gt;停止并移除该容器&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo docker stop nginx
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo docker rm nginx
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;创建一个新的容器&#34;&gt;创建一个新的容器&lt;/h2&gt;
+&lt;p&gt;查看刚刚复制出来的配置文件，查看需要映射的目录，也就是日志目录、服务器根目录以及配置文件。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;9
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/var/log/nginx/
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;#nginx的日志目录&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/etc/nginx/nginx.conf
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/etc/nginx/conf.d/default.conf
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;#配置文件&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/usr/share/nginx/html/
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;#服务器根目录&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;默认监听的是80端口，所以只要开一个80端口就行了。
+&lt;img src=&#34;https://bonbon369.github.io/p/docker/image2.png&#34;
+	width=&#34;503&#34;
+	height=&#34;153&#34;
+	srcset=&#34;https://bonbon369.github.io/p/docker/image2_hu2b0c6d3128588e583e7f0c4f56c673e4_19755_480x0_resize_box_3.png 480w, https://bonbon369.github.io/p/docker/image2_hu2b0c6d3128588e583e7f0c4f56c673e4_19755_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;查看端口&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;328&#34;
+		data-flex-basis=&#34;789px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;9
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo docker run &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;  -d --name nginx &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;  --restart&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;always &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;  -p 80:80 &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;  -v /mnt/nginx/nginx.conf:/etc/nginx/nginx.conf &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;  -v /mnt/nginx/conf.d/:/etc/nginx/conf.d/ &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;  -v /mnt/nginx/logs/:/var/log/nginx/ &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;  -v /mnt/nginx/html/:/usr/share/nginx/html &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;  --privileged nginx:latest
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;-v&lt;/code&gt;：绑定一个卷volume，或者说主机共享目录或文件。&lt;code&gt;[主机目录或文件]:[容器目录或文件]&lt;/code&gt;
+&lt;code&gt;--restart&lt;/code&gt;：这个可以设置容器的启动模式，如果一个容器被设置成设置成&lt;code&gt;always&lt;/code&gt;那么docker重启时，该容器也会被自动重启，总之就是保证容器一直都是开启的状态。因为服务器是要一直开着的，所以就设置为always。&lt;a class=&#34;link&#34; href=&#34;https://docs.docker.com/config/containers/start-containers-automatically/#use-a-restart-policy&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;文档&lt;/a&gt;
+&lt;code&gt;--privileged&lt;/code&gt;：授予容器所有的权限，比如写入主机目录下的文件（共享的那几个目录）。
+&lt;code&gt;\&lt;/code&gt;：可以给命令分行&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;往&lt;code&gt;/mnt/nginx/html&lt;/code&gt;里面写一个&lt;code&gt;index.html&lt;/code&gt;，看看效果。&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Hello World!</title>
+        <link>https://bonbon369.github.io/p/test-post/</link>
+        <pubDate>Sat, 07 May 2022 13:33:47 +0800</pubDate>
+        
+        <guid>https://bonbon369.github.io/p/test-post/</guid>
+        <description>&lt;img src="https://bonbon369.github.io/p/test-post/earth.jpg" alt="Featured image of post Hello World!" /&gt;&lt;h1 id=&#34;hello-word&#34;&gt;Hello Word!&lt;/h1&gt;
+&lt;p&gt;你好，世界！&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

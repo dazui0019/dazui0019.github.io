@@ -8,7 +8,7 @@ links:
 
   - title: EMQX
     description: An Open-Source, Cloud-Native, Distributed MQTT Broker for IoT
-    website: https://www.emqx.io
+    website: http://192.168.2.148:18083
     image: EMQX.png
 menu:
     main:
