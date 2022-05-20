@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Hugo on bon's blog</title><link>https://bonbon369.github.io/tags/hugo/</link><description>Recent content in Hugo on bon's blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 07 May 2022 13:56:22 +0800</lastBuildDate><atom:link href="https://bonbon369.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml"/><item><title>Hugo + GitPage + Actions</title><link>https://bonbon369.github.io/p/hugo--gitpage--actions/</link><pubDate>Sat, 07 May 2022 13:56:22 +0800</pubDate><guid>https://bonbon369.github.io/p/hugo--gitpage--actions/</guid><description>&lt;img src="https://bonbon369.github.io/p/hugo--gitpage--actions/hugo-logo-wide.svg" alt="Featured image of post Hugo + GitPage + Actions" />&lt;h1 id="下载hugo">下载hugo&lt;/h1>
+&lt;p>用的是windows 11系统&lt;/p>
+&lt;p>&lt;a class="link" href="https://www.gohugo.cn/" target="_blank" rel="noopener"
+>Hugo中文官网&lt;/a>&lt;/p>
+&lt;h2 id="使用scoop下载">使用Scoop下载&lt;/h2>
+&lt;p>我是win10系统，直接在GitHub下载压缩包或者使用&lt;a class="link" href="https://scoop.sh/" target="_blank" rel="noopener"
+>scoop&lt;/a>下载。&lt;/p></description></item><item><title>Hello World!</title><link>https://bonbon369.github.io/p/test-post/</link><pubDate>Sat, 07 May 2022 13:33:47 +0800</pubDate><guid>https://bonbon369.github.io/p/test-post/</guid><description>&lt;img src="https://bonbon369.github.io/p/test-post/earth.jpg" alt="Featured image of post Hello World!" />&lt;h1 id="hello-word">Hello Word!&lt;/h1>
+&lt;p>你好，世界！&lt;/p></description></item></channel></rss>

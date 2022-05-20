@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Linux on bon's blog</title><link>https://bonbon369.github.io/categories/linux/</link><description>Recent content in Linux on bon's blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 07 May 2022 14:16:05 +0800</lastBuildDate><atom:link href="https://bonbon369.github.io/categories/linux/index.xml" rel="self" type="application/rss+xml"/><item><title>Docker</title><link>https://bonbon369.github.io/p/docker/</link><pubDate>Sat, 07 May 2022 14:16:05 +0800</pubDate><guid>https://bonbon369.github.io/p/docker/</guid><description>&lt;img src="https://bonbon369.github.io/p/docker/contributors.png" alt="Featured image of post Docker" />&lt;p>以nginx为例。&lt;/p>
+&lt;h1 id="下载并安装docker">下载并安装docker&lt;/h1>
+&lt;p>&lt;a class="link" href="https://docs.docker.com/engine/install/ubuntu/#install-using-the-convenience-script" target="_blank" rel="noopener"
+>官方文档&lt;/a>，直接使用&lt;a class="link" href="https://docs.docker.com/engine/install/ubuntu/#install-using-the-convenience-script" target="_blank" rel="noopener"
+>脚本安装&lt;/a>，我选择的是Ubuntu的Docker Engine版本。
+很简单我就不演示了。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">curl -fsSL https://get.docker.com -o get-docker.sh
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo bash get-docker.sh
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#就是把.sh文件下过来,再用bash打开&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h1 id="nginx">nginx&lt;/h1>
+&lt;h2 id="拉取镜像">拉取镜像&lt;/h2>
+&lt;p>&lt;a class="link" href="https://hub.docker.com/_/nginx?tab=tags" target="_blank" rel="noopener"
+>nginx&lt;/a>在docker上的页面。
+&lt;code>sudo docker pull nginx:latest&lt;/code>&lt;/p>
+&lt;h2 id="创建并启动容器">创建并启动容器&lt;/h2>
+&lt;p>&lt;code>sudo docker run -d --name nginx -p 80:80 -p 443:443 nginx:latest&lt;/code>&lt;/p>
+&lt;blockquote>
+&lt;p>命令解析
+&lt;code>run&lt;/code>：创建并运行一个容器
+&lt;code>nginx:latest&lt;/code>：最后的这一条就是指定用哪一个镜像来创建容器，这里指定的就是nginx。
+&lt;code>-d&lt;/code>：让容器在后台运行。
+&lt;code>--name&lt;/code>：给容器命名，因为一个镜像可以开多个容器。
+&lt;code>-p&lt;/code>：指定端口映射，主机端口：容器端口，例如80：88，把主机的80端口映射到docker的88端口。例如nginx会监听80端口，那我就可以指定&lt;code>-p 7474:80&lt;/code>那么&lt;code>localhost:7474&lt;/code>也会进入nginx的主页。&lt;code>-p&lt;/code>可以指定多个端口映射。&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;a class="link" href="https://www.runoob.com/docker/docker-run-command.html" target="_blank" rel="noopener"
+>docker的其他指令&lt;/a>&lt;/p>
+&lt;h1 id="进入容器内部">进入容器内部&lt;/h1>
+&lt;p>&lt;code>docker exec -it nginx /bin/bash&lt;/code>&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;code>exec&lt;/code>：在运行的容器中执行命令
+&lt;code>-i&lt;/code>：开启标准输入，STDIN
+&lt;code>-t&lt;/code>：分配一个虚拟终端，TTY
+&lt;code>nginx&lt;/code>：指定容器
+&lt;code>/bin/bash&lt;/code>：将这条命令放进容器里执行，就是打开bash&lt;/p>
+&lt;/blockquote>
+&lt;p>这样就可以在容器的内部直接操作容器了。
+&lt;img src="https://bonbon369.github.io/p/docker/image1.png"
+width="1692"
+height="153"
+srcset="https://bonbon369.github.io/p/docker/image1_hu6a059a3f68edceacff93d5c9bfb0fa1a_37351_480x0_resize_box_3.png 480w, https://bonbon369.github.io/p/docker/image1_hu6a059a3f68edceacff93d5c9bfb0fa1a_37351_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="在容器内部"
+class="gallery-image"
+data-flex-grow="1105"
+data-flex-basis="2654px"
+>&lt;/p>
+&lt;h1 id="宿主机与容器共享文件">宿主机与容器共享文件&lt;/h1>
+&lt;ol>
+&lt;li>先创建一个nginx容器，把里面的配置文件拷贝出来。&lt;/li>
+&lt;li>删除原来的nginx容器。&lt;/li>
+&lt;li>在主机上创建&lt;code>www/html&lt;/code>目录，作为网站的根目录。&lt;/li>
+&lt;li>新建一个nginx容器，将之前复制出来的文件和&lt;code>www/html&lt;/code>共享给nginx容器。&lt;/li>
+&lt;/ol>
+&lt;h2 id="准备共享的文件">准备共享的文件&lt;/h2>
+&lt;h3 id="在主机上创建共享目录">在主机上创建共享目录&lt;/h3>
+&lt;p>我的习惯是跟据nginx原来的目录结果，建个差不多的。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo mkdir -p /mnt/nginx/html/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 网站根目录&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo mkdir -p /mnt/nginx/logs/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 保存日志文件&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo mkdir -p /mnt/nginx/conf.d/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 有一个配置文件会放在该目录下&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="拷贝配置文件">拷贝配置文件&lt;/h3>
+&lt;p>先将容器中的配置文件拷贝出来，将容器nginx内的&lt;code>nginx.conf&lt;/code>和&lt;code>default.conf&lt;/code>分别复制到&lt;code>/mnt/nginx&lt;/code>和&lt;code>/mnt/nginx/conf.d/&lt;/code>目录下。
+&lt;code>/mnt&lt;/code>目录是专门用来挂载的，那么将容器中的文件链接到主机，也能算挂载吧，所以放在这个目录下。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo docker cp nginx:/etc/nginx/nginx.conf /mnt/nginx/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo docker cp nginx:/etc/nginx/conf.d/default.conf /mnt/nginx/conf.d/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># cp 命令如果目的地地址的末尾是个目录的话，文件会按原来的名字放进该目录。否则改成末尾的文件名。&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 比如这里conf.d/是个目录，那就是将default.conf放进该目录下。&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 如果去掉/符号，也就是将conf.d当作一个文件名，那么default.conf会被改名成conf.d并放在nginx/目录下&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;blockquote>
+&lt;p>&lt;code>cp&lt;/code>：指定容器目录，&lt;code>[容器名或容器ID]:[容器内的目录或文件]&lt;/code>
+&lt;code>cp&lt;/code>命令可以在容器和主机之间双向拷贝。&lt;/p>
+&lt;/blockquote>
+&lt;p>当前的目录结构&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">$ tree
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">└── nginx
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ├── conf.d
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> │   └── default.conf
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ├── html
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ├── logs
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> └── nginx.conf
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="停止并移除该容器">停止并移除该容器&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo docker stop nginx
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo docker rm nginx
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="创建一个新的容器">创建一个新的容器&lt;/h2>
+&lt;p>查看刚刚复制出来的配置文件，查看需要映射的目录，也就是日志目录、服务器根目录以及配置文件。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">/var/log/nginx/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#nginx的日志目录&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">/etc/nginx/nginx.conf
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">/etc/nginx/conf.d/default.conf
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#配置文件&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">/usr/share/nginx/html/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#服务器根目录&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>默认监听的是80端口，所以只要开一个80端口就行了。
+&lt;img src="https://bonbon369.github.io/p/docker/image2.png"
+width="503"
+height="153"
+srcset="https://bonbon369.github.io/p/docker/image2_hu2b0c6d3128588e583e7f0c4f56c673e4_19755_480x0_resize_box_3.png 480w, https://bonbon369.github.io/p/docker/image2_hu2b0c6d3128588e583e7f0c4f56c673e4_19755_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="查看端口"
+class="gallery-image"
+data-flex-grow="328"
+data-flex-basis="789px"
+>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo docker run &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> -d --name nginx &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> --restart&lt;span class="o">=&lt;/span>always &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> -p 80:80 &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> -v /mnt/nginx/nginx.conf:/etc/nginx/nginx.conf &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> -v /mnt/nginx/conf.d/:/etc/nginx/conf.d/ &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> -v /mnt/nginx/logs/:/var/log/nginx/ &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> -v /mnt/nginx/html/:/usr/share/nginx/html &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> --privileged nginx:latest
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;blockquote>
+&lt;p>&lt;code>-v&lt;/code>：绑定一个卷volume，或者说主机共享目录或文件。&lt;code>[主机目录或文件]:[容器目录或文件]&lt;/code>
+&lt;code>--restart&lt;/code>：这个可以设置容器的启动模式，如果一个容器被设置成设置成&lt;code>always&lt;/code>那么docker重启时，该容器也会被自动重启，总之就是保证容器一直都是开启的状态。因为服务器是要一直开着的，所以就设置为always。&lt;a class="link" href="https://docs.docker.com/config/containers/start-containers-automatically/#use-a-restart-policy" target="_blank" rel="noopener"
+>文档&lt;/a>
+&lt;code>--privileged&lt;/code>：授予容器所有的权限，比如写入主机目录下的文件（共享的那几个目录）。
+&lt;code>\&lt;/code>：可以给命令分行&lt;/p>
+&lt;/blockquote>
+&lt;p>往&lt;code>/mnt/nginx/html&lt;/code>里面写一个&lt;code>index.html&lt;/code>，看看效果。&lt;/p></description></item></channel></rss>
