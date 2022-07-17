@@ -208,11 +208,5 @@ data-flex-basis="789px"
 &lt;code>--privileged&lt;/code>：授予容器所有的权限，比如写入主机目录下的文件（共享的那几个目录）。
 &lt;code>\&lt;/code>：可以给命令分行&lt;/p>
 &lt;/blockquote>
-&lt;p>往&lt;code>/mnt/nginx/html&lt;/code>里面写一个&lt;code>index.html&lt;/code>，看看效果。&lt;/p></description></item><item><title>Hugo + GitPage + Actions</title><link>https://bonbon369.github.io/p/hugo--gitpage--actions/</link><pubDate>Sat, 07 May 2022 13:56:22 +0800</pubDate><guid>https://bonbon369.github.io/p/hugo--gitpage--actions/</guid><description>&lt;img src="https://bonbon369.github.io/p/hugo--gitpage--actions/hugo-logo-wide.svg" alt="Featured image of post Hugo + GitPage + Actions" />&lt;h1 id="下载hugo">下载hugo&lt;/h1>
-&lt;p>用的是windows 11系统&lt;/p>
-&lt;p>&lt;a class="link" href="https://www.gohugo.cn/" target="_blank" rel="noopener"
->Hugo中文官网&lt;/a>&lt;/p>
-&lt;h2 id="使用scoop下载">使用Scoop下载&lt;/h2>
-&lt;p>我是win10系统，直接在GitHub下载压缩包或者使用&lt;a class="link" href="https://scoop.sh/" target="_blank" rel="noopener"
->scoop&lt;/a>下载。&lt;/p></description></item><item><title>Hello World!</title><link>https://bonbon369.github.io/p/test-post/</link><pubDate>Sat, 07 May 2022 13:33:47 +0800</pubDate><guid>https://bonbon369.github.io/p/test-post/</guid><description>&lt;img src="https://bonbon369.github.io/p/test-post/earth.jpg" alt="Featured image of post Hello World!" />&lt;h1 id="hello-word">Hello Word!&lt;/h1>
+&lt;p>往&lt;code>/mnt/nginx/html&lt;/code>里面写一个&lt;code>index.html&lt;/code>，看看效果。&lt;/p></description></item><item><title>Hello World!</title><link>https://bonbon369.github.io/p/test-post/</link><pubDate>Sat, 07 May 2022 13:33:47 +0800</pubDate><guid>https://bonbon369.github.io/p/test-post/</guid><description>&lt;img src="https://bonbon369.github.io/p/test-post/earth.jpg" alt="Featured image of post Hello World!" />&lt;h1 id="hello-word">Hello Word!&lt;/h1>
 &lt;p>你好，世界！&lt;/p></description></item></channel></rss>
