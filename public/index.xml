@@ -6,7 +6,84 @@
         <description>Recent content on bon&#39;s blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Sun, 08 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://bonbon369.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 17 Jul 2022 14:20:26 +0800</lastBuildDate><atom:link href="https://bonbon369.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>适用于 Windows 10/11 的PL-2303HXA驱动</title>
+        <link>https://bonbon369.github.io/p/%E9%80%82%E7%94%A8%E4%BA%8E-windows-10/11-%E7%9A%84pl-2303hxa%E9%A9%B1%E5%8A%A8/</link>
+        <pubDate>Sun, 17 Jul 2022 14:20:26 +0800</pubDate>
+        
+        <guid>https://bonbon369.github.io/p/%E9%80%82%E7%94%A8%E4%BA%8E-windows-10/11-%E7%9A%84pl-2303hxa%E9%A9%B1%E5%8A%A8/</guid>
+        <description>&lt;p&gt;在淘宝整了一块FPGA的板子，应该是很多年前的库存了（对于我一个初学者来说，香的很!），它使用的USB转串口芯片是PL-2303HXA，但是这个型号已经停产了，所以在&lt;a class=&#34;link&#34; href=&#34;https://www.prolific.com.tw/US/ShowProduct.aspx?pcid=41&amp;amp;showlevel=0017-0037-0041&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Prolific官网&lt;/a&gt;下载的最新驱动是无法使用的（感觉是厂家故意的&amp;hellip;）。
+&lt;img src=&#34;https://bonbon369.github.io/p/%E9%80%82%E7%94%A8%E4%BA%8E-windows-10/11-%E7%9A%84pl-2303hxa%E9%A9%B1%E5%8A%A8/pic/PL2303G.png&#34;
+	width=&#34;557&#34;
+	height=&#34;131&#34;
+	srcset=&#34;https://bonbon369.github.io/p/%E9%80%82%E7%94%A8%E4%BA%8E-windows-10/11-%E7%9A%84pl-2303hxa%E9%A9%B1%E5%8A%A8/pic/PL2303G_hu1f40e2bc25c92b185ef8fe25ec2771ed_11479_480x0_resize_box_3.png 480w, https://bonbon369.github.io/p/%E9%80%82%E7%94%A8%E4%BA%8E-windows-10/11-%E7%9A%84pl-2303hxa%E9%A9%B1%E5%8A%A8/pic/PL2303G_hu1f40e2bc25c92b185ef8fe25ec2771ed_11479_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;驱动&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;425&#34;
+		data-flex-basis=&#34;1020px&#34;
+	
+&gt;
+&lt;img src=&#34;https://bonbon369.github.io/p/%E9%80%82%E7%94%A8%E4%BA%8E-windows-10/11-%E7%9A%84pl-2303hxa%E9%A9%B1%E5%8A%A8/pic/discontinued.png&#34;
+	width=&#34;639&#34;
+	height=&#34;97&#34;
+	srcset=&#34;https://bonbon369.github.io/p/%E9%80%82%E7%94%A8%E4%BA%8E-windows-10/11-%E7%9A%84pl-2303hxa%E9%A9%B1%E5%8A%A8/pic/discontinued_hu050c67d05a4bd9cd1b678185a260aad0_6369_480x0_resize_box_3.png 480w, https://bonbon369.github.io/p/%E9%80%82%E7%94%A8%E4%BA%8E-windows-10/11-%E7%9A%84pl-2303hxa%E9%A9%B1%E5%8A%A8/pic/discontinued_hu050c67d05a4bd9cd1b678185a260aad0_6369_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;停产&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;658&#34;
+		data-flex-basis=&#34;1581px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;因此需要找到旧版的驱动，但是又不能太旧，太旧的话对Windows10以上的系统支持不太好，因此需要找到一个合适的驱动。（你废话不要太多了😡！）&lt;/p&gt;
+&lt;h2 id=&#34;下载地址&#34;&gt;下载地址&lt;/h2&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.aliyundrive.com/s/biGJbmC8TTR&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;阿里云&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://pan.baidu.com/s/1P5yYXq0QW7O_bsdhL9Ljiw?pwd=gec0&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;百度云&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;卸载驱动&#34;&gt;卸载驱动&lt;/h2&gt;
+&lt;p&gt;如果已经安装过驱动，安装该驱动前请先把原来的驱动删掉。具体方法如下，&lt;/p&gt;
+&lt;p&gt;右击设备，点击&amp;quot;卸载设备&amp;quot;，在弹出的窗口中给&amp;quot;尝试删除此设备的驱动&amp;quot;打上勾。
+&lt;img src=&#34;https://bonbon369.github.io/p/%E9%80%82%E7%94%A8%E4%BA%8E-windows-10/11-%E7%9A%84pl-2303hxa%E9%A9%B1%E5%8A%A8/pic/remove.png&#34;
+	width=&#34;781&#34;
+	height=&#34;572&#34;
+	srcset=&#34;https://bonbon369.github.io/p/%E9%80%82%E7%94%A8%E4%BA%8E-windows-10/11-%E7%9A%84pl-2303hxa%E9%A9%B1%E5%8A%A8/pic/remove_hucbf3690872446adf2d3447665cc39838_49620_480x0_resize_box_3.png 480w, https://bonbon369.github.io/p/%E9%80%82%E7%94%A8%E4%BA%8E-windows-10/11-%E7%9A%84pl-2303hxa%E9%A9%B1%E5%8A%A8/pic/remove_hucbf3690872446adf2d3447665cc39838_49620_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;卸载设备&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;136&#34;
+		data-flex-basis=&#34;327px&#34;
+	
+&gt;
+&lt;img src=&#34;https://bonbon369.github.io/p/%E9%80%82%E7%94%A8%E4%BA%8E-windows-10/11-%E7%9A%84pl-2303hxa%E9%A9%B1%E5%8A%A8/pic/uninstall.png&#34;
+	width=&#34;394&#34;
+	height=&#34;289&#34;
+	srcset=&#34;https://bonbon369.github.io/p/%E9%80%82%E7%94%A8%E4%BA%8E-windows-10/11-%E7%9A%84pl-2303hxa%E9%A9%B1%E5%8A%A8/pic/uninstall_hu29dac3f9da3368698cc32c053663e80c_16222_480x0_resize_box_3.png 480w, https://bonbon369.github.io/p/%E9%80%82%E7%94%A8%E4%BA%8E-windows-10/11-%E7%9A%84pl-2303hxa%E9%A9%B1%E5%8A%A8/pic/uninstall_hu29dac3f9da3368698cc32c053663e80c_16222_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;卸载驱动&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;136&#34;
+		data-flex-basis=&#34;327px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;安装驱动&#34;&gt;安装驱动&lt;/h2&gt;
+&lt;p&gt;直接双击运行。&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>About</title>
         <link>https://bonbon369.github.io/about/</link>
         <pubDate>Sun, 08 May 2022 00:00:00 +0000</pubDate>
@@ -240,21 +317,6 @@
 &lt;code&gt;\&lt;/code&gt;：可以给命令分行&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;往&lt;code&gt;/mnt/nginx/html&lt;/code&gt;里面写一个&lt;code&gt;index.html&lt;/code&gt;，看看效果。&lt;/p&gt;
-</description>
-        </item>
-        <item>
-        <title>Hugo &#43; GitPage &#43; Actions</title>
-        <link>https://bonbon369.github.io/p/hugo--gitpage--actions/</link>
-        <pubDate>Sat, 07 May 2022 13:56:22 +0800</pubDate>
-        
-        <guid>https://bonbon369.github.io/p/hugo--gitpage--actions/</guid>
-        <description>&lt;img src="https://bonbon369.github.io/p/hugo--gitpage--actions/hugo-logo-wide.svg" alt="Featured image of post Hugo &#43; GitPage &#43; Actions" /&gt;&lt;h1 id=&#34;下载hugo&#34;&gt;下载hugo&lt;/h1&gt;
-&lt;p&gt;用的是windows 11系统&lt;/p&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.gohugo.cn/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Hugo中文官网&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&#34;使用scoop下载&#34;&gt;使用Scoop下载&lt;/h2&gt;
-&lt;p&gt;我是win10系统，直接在GitHub下载压缩包或者使用&lt;a class=&#34;link&#34; href=&#34;https://scoop.sh/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;scoop&lt;/a&gt;下载。&lt;/p&gt;
 </description>
         </item>
         <item>

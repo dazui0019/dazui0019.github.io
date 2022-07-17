@@ -1,7 +1,7 @@
 ---
 title: "适用于 Windows 10/11 的PL-2303HXA驱动"
 date: 2022-07-17T14:20:26+08:00
-draft: true
+draft: false
 
 categories:
     - 小坎
