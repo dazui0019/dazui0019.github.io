@@ -50,7 +50,7 @@ data-flex-grow="136"
 data-flex-basis="327px"
 >&lt;/p>
 &lt;h2 id="安装驱动">安装驱动&lt;/h2>
-&lt;p>直接双击运行。&lt;/p></description></item><item><title>About</title><link>https://bonbon369.github.io/about/</link><pubDate>Sun, 08 May 2022 00:00:00 +0000</pubDate><guid>https://bonbon369.github.io/about/</guid><description>&lt;h1 id="about-me">About me&lt;/h1>
+&lt;p>直接双击运行。如果安装时可能还会弹出一个让你卸载驱动的窗口，按照他说的做就好了。卸载完重启一下，再重新安装。&lt;/p></description></item><item><title>About</title><link>https://bonbon369.github.io/about/</link><pubDate>Sun, 08 May 2022 00:00:00 +0000</pubDate><guid>https://bonbon369.github.io/about/</guid><description>&lt;h1 id="about-me">About me&lt;/h1>
 &lt;p>Email: &lt;a class="link" href="mailto:hu-bang@outlook.com" >hu-bang@outlook.com&lt;/a>&lt;/p></description></item><item><title>Docker</title><link>https://bonbon369.github.io/p/docker/</link><pubDate>Sat, 07 May 2022 14:16:05 +0800</pubDate><guid>https://bonbon369.github.io/p/docker/</guid><description>&lt;img src="https://bonbon369.github.io/p/docker/contributors.png" alt="Featured image of post Docker" />&lt;p>以nginx为例。&lt;/p>
 &lt;h1 id="下载并安装docker">下载并安装docker&lt;/h1>
 &lt;p>&lt;a class="link" href="https://docs.docker.com/engine/install/ubuntu/#install-using-the-convenience-script" target="_blank" rel="noopener"
