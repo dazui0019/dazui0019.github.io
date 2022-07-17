@@ -12,3 +12,5 @@ menu:
 ---
 
 # About me
+
+Email: hu-bang@outlook.com
