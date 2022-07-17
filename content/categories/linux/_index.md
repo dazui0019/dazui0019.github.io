@@ -1,6 +1,6 @@
 ---
 title: Linux
-description:
+description: Linux操作系统的使用
 image: linux.svg
 
 # Badge style

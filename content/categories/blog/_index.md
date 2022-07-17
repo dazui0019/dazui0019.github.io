@@ -1,6 +1,6 @@
 ---
 title: Blog
-description:
+description: 博客
 image: type.jpg
 
 # Badge style
