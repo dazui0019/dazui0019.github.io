@@ -1,8 +1,8 @@
 ---
-title: "Wsl2AndClash"
+title: "Wsl2 配置 Clash 代理"
 date: 2022-07-29T21:45:07+08:00
 draft: false
-
+image: "pic/clash.jpg"
 categories:
     - Linux
 tags:
@@ -12,19 +12,22 @@ tags:
     - command
 ---
 
+不是直接在虚拟机里安装["Clash for linux"](https://github.com/Dreamacro/clash)而是直接使用宿主机的clash代理，也就是只在Windows上打开代理。
+
 # clash设置
 
-需要允许局域网连接
+需要允许局域网连接。
 ![允许局域网连接](pic/allowLan.png)
 
-以及代理端口号，这个在clash home目录的`./profiles/xxx.yml`配置文件（我的文件名是一串数字）里可以看到。
-
+并获取代理端口号，这个在clash home目录的`./profiles/xxx.yml`配置文件（我的文件名是一串数字）里可以看到。
 clash可以直接打开`home/`目录。
 ![打开家目录](pic/HomeDirectory.png)
 
-在配置文件查看端口。
+在配置文件中查看代理端口。
 ![查看端口](pic/port.png)
 
+貌似不用开启虚拟机的回环代理，实测开不开都无所谓。
+![Lookback](pic/loopback.png)
 # wsl设置
 
 添加到`~/`目录下的`.bashrc`即可。
