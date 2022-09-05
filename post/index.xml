@@ -42,8 +42,8 @@ data-flex-grow="1113"
 data-flex-basis="2673px"
 >&lt;/p>
 &lt;h2 id="注意">注意&lt;/h2>
-&lt;p>&lt;code>ping&lt;/code>命令不会使用代理，所以&lt;code>ping google.com&lt;/code>此时也是&lt;code>ping&lt;/code>不通的。可以使用&lt;code>curl&lt;/code>命令来测试。&lt;/p>
-&lt;p>&lt;img src="https://bonbon369.github.io/p/wsl2-%E9%85%8D%E7%BD%AE-clash-%E4%BB%A3%E7%90%86/pic/curl.png"
+&lt;p>&lt;code>ping&lt;/code>命令不会使用代理，所以&lt;code>ping google.com&lt;/code>此时也是&lt;code>ping&lt;/code>不通的。可以使用&lt;code>curl&lt;/code>命令来测试。
+&lt;img src="https://bonbon369.github.io/p/wsl2-%E9%85%8D%E7%BD%AE-clash-%E4%BB%A3%E7%90%86/pic/curl.png"
 width="1113"
 height="480"
 srcset="https://bonbon369.github.io/p/wsl2-%E9%85%8D%E7%BD%AE-clash-%E4%BB%A3%E7%90%86/pic/curl_hue406caa60a230c7fb4f0d7113e84fe33_469861_480x0_resize_box_3.png 480w, https://bonbon369.github.io/p/wsl2-%E9%85%8D%E7%BD%AE-clash-%E4%BB%A3%E7%90%86/pic/curl_hue406caa60a230c7fb4f0d7113e84fe33_469861_1024x0_resize_box_3.png 1024w"
