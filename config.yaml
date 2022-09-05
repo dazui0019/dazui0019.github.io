@@ -19,6 +19,7 @@ languages:
         title: موقع تجريبي
         weight: 3
 
+# 中文显示有点问题索性关了
 disableLanguages:
     - zh-cn
     - ar
@@ -59,7 +60,8 @@ params:
 
     sidebar:
         emoji: 🎃
-        subtitle: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        # subtitle: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        subtitle: 学以致知，然后学以致用。
         avatar:
             enabled: true
             local: true
