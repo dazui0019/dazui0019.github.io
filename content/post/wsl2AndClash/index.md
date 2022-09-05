@@ -38,5 +38,4 @@ export ALL_PROXY="http://$host_ip:7890"
 ## 注意
 
 `ping`命令不会使用代理，所以`ping google.com`此时也是`ping`不通的。可以使用`curl`命令来测试。
-
 ![curl](pic/curl.png)
