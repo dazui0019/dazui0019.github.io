@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>clash on bon's blog</title><link>https://bonbon369.github.io/tags/clash/</link><description>Recent content in clash on bon's blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 29 Jul 2022 21:45:07 +0800</lastBuildDate><atom:link href="https://bonbon369.github.io/tags/clash/index.xml" rel="self" type="application/rss+xml"/><item><title>Wsl2 配置 Clash 代理</title><link>https://bonbon369.github.io/p/wsl2-%E9%85%8D%E7%BD%AE-clash-%E4%BB%A3%E7%90%86/</link><pubDate>Fri, 29 Jul 2022 21:45:07 +0800</pubDate><guid>https://bonbon369.github.io/p/wsl2-%E9%85%8D%E7%BD%AE-clash-%E4%BB%A3%E7%90%86/</guid><description>&lt;img src="https://bonbon369.github.io/p/wsl2-%E9%85%8D%E7%BD%AE-clash-%E4%BB%A3%E7%90%86/pic/clash.jpg" alt="Featured image of post Wsl2 配置 Clash 代理" />&lt;p>不是直接在虚拟机里安装&lt;a class="link" href="https://github.com/Dreamacro/clash" target="_blank" rel="noopener"
 >&amp;ldquo;Clash for linux&amp;rdquo;&lt;/a>而是直接使用宿主机的clash代理，也就是只在Windows上打开代理。&lt;/p>
 &lt;h1 id="clash设置">clash设置&lt;/h1>
-&lt;p>需要允许局域网连接。
+&lt;p>允许局域网连接，并记下端口号&lt;code>7890&lt;/code>。
 &lt;img src="https://bonbon369.github.io/p/wsl2-%E9%85%8D%E7%BD%AE-clash-%E4%BB%A3%E7%90%86/pic/allowLan.png"
 width="586"
 height="67"
@@ -12,59 +12,24 @@ class="gallery-image"
 data-flex-grow="874"
 data-flex-basis="2099px"
 >&lt;/p>
-&lt;p>并获取代理端口号，这个在clash home目录的&lt;code>./profiles/xxx.yml&lt;/code>配置文件（我的文件名是一串数字）里可以看到。
-clash可以直接打开&lt;code>home/&lt;/code>目录。
-&lt;img src="https://bonbon369.github.io/p/wsl2-%E9%85%8D%E7%BD%AE-clash-%E4%BB%A3%E7%90%86/pic/HomeDirectory.png"
-width="586"
-height="34"
-srcset="https://bonbon369.github.io/p/wsl2-%E9%85%8D%E7%BD%AE-clash-%E4%BB%A3%E7%90%86/pic/HomeDirectory_hua8f9e214b6044e5d4abb60e5a24060f7_2259_480x0_resize_box_3.png 480w, https://bonbon369.github.io/p/wsl2-%E9%85%8D%E7%BD%AE-clash-%E4%BB%A3%E7%90%86/pic/HomeDirectory_hua8f9e214b6044e5d4abb60e5a24060f7_2259_1024x0_resize_box_3.png 1024w"
-loading="lazy"
-alt="打开家目录"
-class="gallery-image"
-data-flex-grow="1723"
-data-flex-basis="4136px"
->&lt;/p>
-&lt;p>在配置文件中查看代理端口。
-&lt;img src="https://bonbon369.github.io/p/wsl2-%E9%85%8D%E7%BD%AE-clash-%E4%BB%A3%E7%90%86/pic/port.png"
-width="707"
-height="257"
-srcset="https://bonbon369.github.io/p/wsl2-%E9%85%8D%E7%BD%AE-clash-%E4%BB%A3%E7%90%86/pic/port_hufb3f9eab020235db8fbfcb445abade45_22791_480x0_resize_box_3.png 480w, https://bonbon369.github.io/p/wsl2-%E9%85%8D%E7%BD%AE-clash-%E4%BB%A3%E7%90%86/pic/port_hufb3f9eab020235db8fbfcb445abade45_22791_1024x0_resize_box_3.png 1024w"
-loading="lazy"
-alt="查看端口"
-class="gallery-image"
-data-flex-grow="275"
-data-flex-basis="660px"
->&lt;/p>
-&lt;p>貌似不用开启虚拟机的回环代理，实测开不开都无所谓。
-&lt;img src="https://bonbon369.github.io/p/wsl2-%E9%85%8D%E7%BD%AE-clash-%E4%BB%A3%E7%90%86/pic/loopback.png"
-width="761"
-height="362"
-srcset="https://bonbon369.github.io/p/wsl2-%E9%85%8D%E7%BD%AE-clash-%E4%BB%A3%E7%90%86/pic/loopback_hub14132ce033dd03bcaf396d167957ae6_35978_480x0_resize_box_3.png 480w, https://bonbon369.github.io/p/wsl2-%E9%85%8D%E7%BD%AE-clash-%E4%BB%A3%E7%90%86/pic/loopback_hub14132ce033dd03bcaf396d167957ae6_35978_1024x0_resize_box_3.png 1024w"
-loading="lazy"
-alt="Lookback"
-class="gallery-image"
-data-flex-grow="210"
-data-flex-basis="504px"
->&lt;/p>
-&lt;h1 id="wsl设置">wsl设置&lt;/h1>
-&lt;p>添加到&lt;code>~/&lt;/code>目录下的&lt;code>.bashrc&lt;/code>即可。&lt;/p>
+&lt;h2 id="开启系统代理">开启系统代理&lt;/h2>
+&lt;p>一般配置系统代理都是使用回环地址 &lt;code>127.0.0.1&lt;/code> 但是WSL不行，需要改成WSL的IP地址。&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;span class="lnt">2
 &lt;/span>&lt;span class="lnt">3
 &lt;/span>&lt;span class="lnt">4
-&lt;/span>&lt;span class="lnt">5
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 设置clash代理&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 自动获取IP地址&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">host_ip&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="k">$(&lt;/span>cat /etc/resolv.conf &lt;span class="p">|&lt;/span>grep &lt;span class="s2">&amp;#34;nameserver&amp;#34;&lt;/span> &lt;span class="p">|&lt;/span>cut -d &lt;span class="s2">&amp;#34; &amp;#34;&lt;/span> -f 2&lt;span class="k">)&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># ALL_PROXY,应该是表示全局代理&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">export&lt;/span> &lt;span class="nv">ALL_PROXY&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;http://&lt;/span>&lt;span class="nv">$host_ip&lt;/span>&lt;span class="s2">:7890&amp;#34;&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;h2 id="自动获取ip地址">自动获取IP地址&lt;/h2>
+&lt;/div>&lt;p>是个环境变量，所以写进&lt;code>.bashrc&lt;/code>即可自动添加。&lt;/p>
+&lt;h2 id="自动获取ip地址">自动获取IP地址&lt;/h2>
 &lt;p>&lt;code>cat /etc/resolv.conf |grep &amp;quot;nameserver&amp;quot; |cut -d &amp;quot; &amp;quot; -f 2&lt;/code>
 &lt;img src="https://bonbon369.github.io/p/wsl2-%E9%85%8D%E7%BD%AE-clash-%E4%BB%A3%E7%90%86/pic/reslov.png"
 width="958"
@@ -76,45 +41,15 @@ class="gallery-image"
 data-flex-grow="1113"
 data-flex-basis="2673px"
 >&lt;/p>
-&lt;h3 id="cut介绍">&lt;code>cut&lt;/code>介绍&lt;/h3>
-&lt;blockquote>
-&lt;p>Usage: cut OPTION&amp;hellip; [FILE]&amp;hellip;&lt;/p>
-&lt;p>Use one, and only one of -b, -c or -f. Each LIST is made up of one range, or many ranges separated by commas. Selected input is written in the same order that it is read, and is written exactly once.&lt;/p>
-&lt;/blockquote>
-&lt;blockquote>
-&lt;p>cut 命令从文件的每一行（因此输出出来可能会有很多行）剪切字节、字符和字段并将这些字节、字符和字段写至标准输出。如果不指定 File 参数，cut 命令将读取标准输入。&lt;a class="link" href="https://www.runoob.com/linux/linux-comm-cut.html" target="_blank" rel="noopener"
->&amp;ldquo;菜鸟教程&amp;rdquo;&lt;/a>&lt;/p>
-&lt;/blockquote>
-&lt;p>因为&lt;code>grep&lt;/code>可以定位到含有关键字的行，所以cut配置grep使用的话就能输出某一行的特定字符。&lt;/p>
-&lt;h4 id="参数">参数&lt;/h4>
-&lt;p>&lt;code>-d&lt;/code>，自定义分隔符，默认为制表符。例如 &lt;code>-d &amp;quot; &amp;quot;&lt;/code>就是用空格来做分隔符，&lt;code>cut&lt;/code>会用分割符把内容分割成带序号的&amp;quot;区域&amp;quot;。&lt;/p>
-&lt;p>&lt;code>-f&lt;/code>，这个要和&lt;code>-d&lt;/code>参数配合使用，指定显示某一个区域。分隔符是不会显示的。&lt;/p>
-&lt;h2 id="命令解析">命令解析&lt;/h2>
-&lt;p>首先，通过&lt;code>cat /etc/resolv.conf |grep &amp;quot;nameserver&amp;quot;&lt;/code>命令可以获得，
-&lt;code>nameserver 172.19.176.1&lt;/code>
-&lt;img src="https://bonbon369.github.io/p/wsl2-%E9%85%8D%E7%BD%AE-clash-%E4%BB%A3%E7%90%86/pic/nameserver.png"
-width="958"
-height="219"
-srcset="https://bonbon369.github.io/p/wsl2-%E9%85%8D%E7%BD%AE-clash-%E4%BB%A3%E7%90%86/pic/nameserver_hufad6f8b0f19f53faa60d1afe55a274d7_105661_480x0_resize_box_3.png 480w, https://bonbon369.github.io/p/wsl2-%E9%85%8D%E7%BD%AE-clash-%E4%BB%A3%E7%90%86/pic/nameserver_hufad6f8b0f19f53faa60d1afe55a274d7_105661_1024x0_resize_box_3.png 1024w"
-loading="lazy"
-alt="nameserver"
-class="gallery-image"
-data-flex-grow="437"
-data-flex-basis="1049px"
->&lt;/p>
-&lt;p>因为我们只想要后面的IP，所以还需要再处理一下。我们发现该字符串刚好被一个空格&lt;code>&amp;quot; &amp;quot;&lt;/code>分为了两部分，而后面一部分正是我们想要的。因此想到&lt;code>cut&lt;/code>命令并指定空格&lt;code>&amp;quot; &amp;quot;&lt;/code>为分隔符。
-&lt;code>cut -d &amp;quot; &amp;quot; -f 2&lt;/code>在&lt;code>cut&lt;/code>中第二部分的序号就是2，因此用&lt;code>-f 2&lt;/code>命令来指定显示第二部分。&lt;/p>
-&lt;h3 id="最后是变量">最后是变量&lt;/h3>
-&lt;p>如果要用命令的输出（值）来作为bash的变量，则需要将命令写在&lt;code>$()&lt;/code>内。并且bash变量的赋值，等号两边是不能有空格的。&lt;/p>
-&lt;h1 id="注意">注意&lt;/h1>
+&lt;h2 id="注意">注意&lt;/h2>
 &lt;p>&lt;code>ping&lt;/code>命令不会使用代理，所以&lt;code>ping google.com&lt;/code>此时也是&lt;code>ping&lt;/code>不通的。可以使用&lt;code>curl&lt;/code>命令来测试。&lt;/p>
 &lt;p>&lt;img src="https://bonbon369.github.io/p/wsl2-%E9%85%8D%E7%BD%AE-clash-%E4%BB%A3%E7%90%86/pic/curl.png"
-width="958"
-height="192"
-srcset="https://bonbon369.github.io/p/wsl2-%E9%85%8D%E7%BD%AE-clash-%E4%BB%A3%E7%90%86/pic/curl_hu02f9057f375b049ed55d3438b166aec6_152548_480x0_resize_box_3.png 480w, https://bonbon369.github.io/p/wsl2-%E9%85%8D%E7%BD%AE-clash-%E4%BB%A3%E7%90%86/pic/curl_hu02f9057f375b049ed55d3438b166aec6_152548_1024x0_resize_box_3.png 1024w"
+width="1113"
+height="480"
+srcset="https://bonbon369.github.io/p/wsl2-%E9%85%8D%E7%BD%AE-clash-%E4%BB%A3%E7%90%86/pic/curl_hue406caa60a230c7fb4f0d7113e84fe33_469861_480x0_resize_box_3.png 480w, https://bonbon369.github.io/p/wsl2-%E9%85%8D%E7%BD%AE-clash-%E4%BB%A3%E7%90%86/pic/curl_hue406caa60a230c7fb4f0d7113e84fe33_469861_1024x0_resize_box_3.png 1024w"
 loading="lazy"
 alt="curl"
 class="gallery-image"
-data-flex-grow="498"
-data-flex-basis="1197px"
+data-flex-grow="231"
+data-flex-basis="556px"
 >&lt;/p></description></item></channel></rss>
