@@ -205,14 +205,14 @@ menu:
         - identifier: github
           weight: -90
           name: GitHub
-          url: https://github.com/bonbon369
+          url: https://github.com/dazui0019
           params:
               icon: brand-github
 
         - identifier: yuque
           weight: -100
           name: yuque
-          url: https://www.yuque.com/dazui-gv7by
+          url: https://www.yuque.com/hu-bang
           params:
               icon: brand-twitter
 
