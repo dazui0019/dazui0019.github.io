@@ -1,55 +1,26 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>proxy on bon's blog</title><link>https://bonbon369.github.io/tags/proxy/</link><description>Recent content in proxy on bon's blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 29 Jul 2022 21:45:07 +0800</lastBuildDate><atom:link href="https://bonbon369.github.io/tags/proxy/index.xml" rel="self" type="application/rss+xml"/><item><title>Wsl2 配置 Clash 代理</title><link>https://bonbon369.github.io/p/wsl2-%E9%85%8D%E7%BD%AE-clash-%E4%BB%A3%E7%90%86/</link><pubDate>Fri, 29 Jul 2022 21:45:07 +0800</pubDate><guid>https://bonbon369.github.io/p/wsl2-%E9%85%8D%E7%BD%AE-clash-%E4%BB%A3%E7%90%86/</guid><description>&lt;img src="https://bonbon369.github.io/p/wsl2-%E9%85%8D%E7%BD%AE-clash-%E4%BB%A3%E7%90%86/pic/clash.jpg" alt="Featured image of post Wsl2 配置 Clash 代理" />&lt;p>不是直接在虚拟机里安装&lt;a class="link" href="https://github.com/Dreamacro/clash" target="_blank" rel="noopener"
->&amp;ldquo;Clash for linux&amp;rdquo;&lt;/a>而是直接使用宿主机的clash代理，也就是只在Windows上打开代理。&lt;/p>
-&lt;h1 id="clash设置">clash设置&lt;/h1>
-&lt;p>允许局域网连接，并记下端口号&lt;code>7890&lt;/code>。
-&lt;img src="https://bonbon369.github.io/p/wsl2-%E9%85%8D%E7%BD%AE-clash-%E4%BB%A3%E7%90%86/pic/allowLan.png"
-width="586"
-height="67"
-srcset="https://bonbon369.github.io/p/wsl2-%E9%85%8D%E7%BD%AE-clash-%E4%BB%A3%E7%90%86/pic/allowLan_hu782111bbc8ea83eaf9d9158bd32a4988_3631_480x0_resize_box_3.png 480w, https://bonbon369.github.io/p/wsl2-%E9%85%8D%E7%BD%AE-clash-%E4%BB%A3%E7%90%86/pic/allowLan_hu782111bbc8ea83eaf9d9158bd32a4988_3631_1024x0_resize_box_3.png 1024w"
-loading="lazy"
-alt="允许局域网连接"
-class="gallery-image"
-data-flex-grow="874"
-data-flex-basis="2099px"
->&lt;/p>
-&lt;h2 id="开启系统代理">开启系统代理&lt;/h2>
-&lt;p>一般配置系统代理都是使用回环地址 &lt;code>127.0.0.1&lt;/code> 但是WSL不行，需要改成WSL的IP地址。&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Proxy on bon's blog</title><link>https://bonbon369.github.io/tags/proxy/</link><description>Recent content in Proxy on bon's blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 22 Apr 2024 09:43:46 +0800</lastBuildDate><atom:link href="https://bonbon369.github.io/tags/proxy/index.xml" rel="self" type="application/rss+xml"/><item><title>WSL2 配置代理</title><link>https://bonbon369.github.io/p/wsl2-%E9%85%8D%E7%BD%AE%E4%BB%A3%E7%90%86/</link><pubDate>Mon, 22 Apr 2024 09:43:46 +0800</pubDate><guid>https://bonbon369.github.io/p/wsl2-%E9%85%8D%E7%BD%AE%E4%BB%A3%E7%90%86/</guid><description>&lt;h1 id="wsl2使用主机的代理">wsl2使用主机的代理&lt;/h1>
+&lt;p>更新后的WSL2在启动时会有这样的提示&amp;quot;NAT 模式下的 WSL 不支持 localhost 代理。&amp;quot;, 原因是现在的wsl2支持修改代理模式, 修改成自动代理模式就可以直接使用主机的代理, 具体修改方式参考下面的链接。&lt;/p>
+&lt;blockquote>
+&lt;p>参考: &lt;a class="link" href="https://github.com/microsoft/WSL/issues/10753#issuecomment-1814839310" target="_blank" rel="noopener"
+>github issues&lt;/a>&lt;/p>
+&lt;/blockquote>
+&lt;p>在&lt;code>文件资源管理器&lt;/code>中输入&lt;code>%UserProfile%&lt;/code>, 在该目录中的&lt;code>.wslconfig&lt;/code>文件里添加以下内容(如果没有这个文件就新建一个)。&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;span class="lnt">2
 &lt;/span>&lt;span class="lnt">3
 &lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 设置clash代理&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 自动获取IP地址&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">host_ip&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="k">$(&lt;/span>cat /etc/resolv.conf &lt;span class="p">|&lt;/span>grep &lt;span class="s2">&amp;#34;nameserver&amp;#34;&lt;/span> &lt;span class="p">|&lt;/span>cut -d &lt;span class="s2">&amp;#34; &amp;#34;&lt;/span> -f 2&lt;span class="k">)&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">export&lt;/span> &lt;span class="nv">ALL_PROXY&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;http://&lt;/span>&lt;span class="nv">$host_ip&lt;/span>&lt;span class="s2">:7890&amp;#34;&lt;/span>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">[experimental]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">autoMemoryReclaim=gradual | dropcache | disabled
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">networkingMode=mirrored
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">dnsTunneling=true
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">firewall=true
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">autoProxy=true
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;p>是个环境变量，所以写进&lt;code>.bashrc&lt;/code>即可自动添加。&lt;/p>
-&lt;h2 id="自动获取ip地址">自动获取IP地址&lt;/h2>
-&lt;p>&lt;code>cat /etc/resolv.conf |grep &amp;quot;nameserver&amp;quot; |cut -d &amp;quot; &amp;quot; -f 2&lt;/code>
-&lt;img src="https://bonbon369.github.io/p/wsl2-%E9%85%8D%E7%BD%AE-clash-%E4%BB%A3%E7%90%86/pic/reslov.png"
-width="958"
-height="86"
-srcset="https://bonbon369.github.io/p/wsl2-%E9%85%8D%E7%BD%AE-clash-%E4%BB%A3%E7%90%86/pic/reslov_hu86a4061d08eda7980d907722eadf71df_62551_480x0_resize_box_3.png 480w, https://bonbon369.github.io/p/wsl2-%E9%85%8D%E7%BD%AE-clash-%E4%BB%A3%E7%90%86/pic/reslov_hu86a4061d08eda7980d907722eadf71df_62551_1024x0_resize_box_3.png 1024w"
-loading="lazy"
-alt="获取IP"
-class="gallery-image"
-data-flex-grow="1113"
-data-flex-basis="2673px"
->&lt;/p>
-&lt;h2 id="注意">注意&lt;/h2>
-&lt;p>&lt;code>ping&lt;/code>命令不会使用代理，所以&lt;code>ping google.com&lt;/code>此时也是&lt;code>ping&lt;/code>不通的。可以使用&lt;code>curl&lt;/code>命令来测试。
-&lt;img src="https://bonbon369.github.io/p/wsl2-%E9%85%8D%E7%BD%AE-clash-%E4%BB%A3%E7%90%86/pic/curl.png"
-width="1113"
-height="480"
-srcset="https://bonbon369.github.io/p/wsl2-%E9%85%8D%E7%BD%AE-clash-%E4%BB%A3%E7%90%86/pic/curl_hue406caa60a230c7fb4f0d7113e84fe33_469861_480x0_resize_box_3.png 480w, https://bonbon369.github.io/p/wsl2-%E9%85%8D%E7%BD%AE-clash-%E4%BB%A3%E7%90%86/pic/curl_hue406caa60a230c7fb4f0d7113e84fe33_469861_1024x0_resize_box_3.png 1024w"
-loading="lazy"
-alt="curl"
-class="gallery-image"
-data-flex-grow="231"
-data-flex-basis="556px"
->&lt;/p></description></item></channel></rss>
+&lt;/div>&lt;p>设置完后, 重启wsl2, 提示消失, 并且可以直接使用主机的clash代理。&lt;/p></description></item></channel></rss>
