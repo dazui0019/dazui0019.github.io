@@ -40,7 +40,6 @@ jobs:
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
-        # refs/heads/main 就是main分支的全称。
         if: github.ref == 'refs/heads/main' 
         with:
           deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }} # 获取密钥
