@@ -19,13 +19,18 @@ tags:
 
 在`文件资源管理器`中输入`%UserProfile%`, 在该目录中的`.wslconfig`文件里添加以下内容(如果没有这个文件就新建一个)。
 
-```
-[experimental]
-autoMemoryReclaim=gradual | dropcache | disabled
+
+``` .wslconfig
+[wsl2]
 networkingMode=mirrored
 dnsTunneling=true
 firewall=true
 autoProxy=true
+
+[experimental]
+# requires dnsTunneling but are also OPTIONAL
+bestEffortDnsParsing=true
+useWindowsDnsCache=true
 ```
 
 设置完后, 重启wsl2, 提示消失, 并且可以直接使用主机的clash代理。
